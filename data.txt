@@ -1,0 +1,18 @@
+MOV R1, 50      ; R1 register'ına 50 değerini ata.
+MOV R1, #0      ; R1'in değerini bellek adresi #0'a yaz. (Sizin MOV mantığınıza göre: Kaynak, Hedef)
+MOV #0, R2      ; Bellek adresi #0'daki değeri R2'ye oku. (Sizin MOV mantığınıza göre: Hedef, Kaynak)
+PRN R2          ; Ekrana 50 yazmalı. Eğer yazıyorsa bellek okuma/yazma başarılıdır.
+MOV R3, 3       ; R3, döngü sayacımız olacak (3'ten geriye sayacak).
+MOV R4, 0       ; R4, bellekteki değeri biriktirecek.
+MOV #25, 10     ; Bellek adresi #25'e 10 değerini kalıcı olarak yaz.
+ADD R4, #101     ; R4 = R4 + memory[25] (Her döngüde R4'e 10 eklenecek).
+SUB R3, 1       ; Döngü sayacını bir azalt (R3 sırasıyla 2, 1, 0 olacak).
+PRN R4          ; R4'ün anlık değerini ekrana yaz (10, 20, 30 yazmalı).
+JMP R3, 13      ; EĞER R3 SIFIR OLDUYSA, döngüden çık ve 13. satıra atla.
+JMP 8           ; EĞER R3 SIFIR DEĞİLSE, koşulsuz olarak 8. satıra (döngü başına) geri dön.
+PRN R4          ; Döngü bittiğinde R4'ün son değerini tekrar yaz (30 yazmalı).
+MOV R5, -99     ; R5'e negatif bir değer ata.
+JMP R5, #17     ; R5 <= 0 OLDUĞU İÇİN, 17. satıra zıplaması GEREKİR.
+PRN 11111       ; Bu satırın çalıştırılmaması lazım. Ekranda 11111 GÖRMEMELİSİNİZ.
+PRN R5          ; Ekrana -99 yazmalı. Bu, zıplamanın başarılı olduğunu gösterir.
+HLT             ; Programı bitir.
